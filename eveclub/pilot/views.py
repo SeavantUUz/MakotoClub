@@ -180,7 +180,7 @@ def updategravatar(request):
 
             u=request.user
             oldImgPath = MEDIA_ROOT+u.gravatar.name
-            if os.path.exists(oldImgPath):
+            if u.gravatar.name != 'gravatar/default.png' and os.path.exists(oldImgPath):
                 os.remove(oldImgPath)
             u.gravatar = newFilepath
             u.save(update_fields=['gravatar'])
