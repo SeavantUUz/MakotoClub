@@ -1,0 +1,47 @@
+{% extends 'channel_base.html' %}
+
+{% block title %}{{ topic.title }}{% endblock %}
+
+{% load markup %}
+
+{% block more_content %}
+<div class="display_topic">
+<table width="100%">
+<caption>{{ topic.title }}</caption>
+{% for p in posts %}
+<tr>
+    <td rowspan="2" width="15%">
+        <p><img src="{{ MEDIA_URL }}{{ p.author.gravatar }}" /><br />
+        <strong>{{ p.author.username }}</strong><br />
+        经验：{{ p.author.experience }} 点<br />
+        财富：{{ p.author.wealth }} ISK<br />
+        积分：{{ p.author.scores }} 分<br /></p>
+    </td>
+    <td width="85%" class="post_cell">
+        <div class="post_content">{{ p.content | markdown:"safe" }}{% ifequal p.create_time p.update_time %}{% else %}</div>
+        <p class="post_modify_note">[{{ p.author }} 于 {{ p.update_time | date:"Y-m-d H:i"}} 修改了帖子内容]{% endifequal %}</p>
+    </td>
+</tr>
+<tr>
+    <td class="end_post">
+        {% ifequal p.author.username user.username %}<a href="/community/post/edit/{{ p.id }}/">编辑</a> |
+        {% endifequal %}{% ifequal p.floor 0 %}楼主{% else %}{{ p.floor}}楼{% endifequal %} | {{ p.create_time | date:"Y-m-d H:i" }}
+    </td>
+</tr>
+
+{% endfor %}
+</table>
+</div>
+{% if user.is_authenticated %}
+<div class="user_action">
+    <p><a href="/channel/{{ channel.id }}/" class="btn">返回帖子列表</a> <a href="#" class="btn" onclick="$('#reply_form').show(); return false;">我要回复</a></p>
+</div>
+<div id="reply_form">
+    <form action="/community/post/new/" method="post">{% csrf_token %}
+        <input type="hidden" name="topic_id" value="{{ topic.id }}" />
+        <p><label>回复内容：</label><textarea name="content" class="reply_textarea"></textarea></p>
+        <p><input type="submit" value="回复" class="btn" /> <a href="#" class="btn" onclick="$('#reply_form').hide(); return false;">算了不说了</a></p>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

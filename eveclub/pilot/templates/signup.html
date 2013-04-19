@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}用户注册{% endblock %}
+
+{% block content %}
+<div class="row">
+<div class="span6">
+{% if form.is_valid %}
+<div class="alert alert-success">
+<p>您好，{{ username }}！</p>
+<p>您的登录密码已经发送到{{ email }}，请查收！</p>
+<p><a href="/pilot/login/">现在登录</a></p>
+</div>
+{% else %}
+<form action="" method="post">{% csrf_token %}
+{{ form.as_p }}
+<p><input type="submit" value="注册" class="btn" /></p>
+</form>
+{% endif %}
+</div>
+<div class="span6">
+    <div class="alert alert-info">
+    <h3>注册用户需知</h3>
+    <ol>
+    <li>会员用户名中不能包含空白字符；</li>
+    <li>会员用户名中至少包含2个字符；</li>
+    <li>会员密码将发送到您填写的电子邮件地址；</li>
+    <li>本站保留取消具有严重误导性或争议性用户名的权利。</li>
+    </ol>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'profile_base.html' %}
+
+{% block title %}修改{{data_type}}{% endblock%}
+
+{% block operation %}
+<div class="row">
+    <div class="span2"></div>
+    <div class="span8">
+    {% if form.is_valid %}
+    <div class="alert alert-success">
+        <p>{{data_type}}修改成功！</p>
+        <p><a href="/pilot/profile/">返回个人信息中心首页</a></p>
+    </div>
+    {% else %}
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.as_p }}
+        <p><input type="submit" value="修改" class="btn" /></p>
+        </form>    
+    {% endif %}
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endblock %}

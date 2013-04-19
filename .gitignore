@@ -1,3 +1,2 @@
-*.log
-*.pot
 *.pyc
+eveclub/eveclub/settings.py

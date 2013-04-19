@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}500服务器被击毁{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="span5">
+		<p><img src="{{ STATIC_URL }}img/500.jpg" width="400px" height="400px" />
+		</p>
+	</div>
+	<div id="server_error_notice" class="span7">
+		<h1>500 Interal Server Error!</h1>
+		<h3>发生了一个错误，服务器已被击毁</h3>
+	</div>
+	<div class="clearfix"></div>
+</div>
+{% endblock %}

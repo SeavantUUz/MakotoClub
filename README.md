@@ -9,5 +9,6 @@ Our community was built based on Django framework version 1.5 and MySQL. It also
 
 * MySQL-Python
 * PIL
+* Markdown
 
-Here is a demo for our community: http://demo.eveclub.org/ . This is a very early and incomplete version. We need more help.
+We need more help.

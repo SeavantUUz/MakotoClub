@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ message_title }}{% endblock %}
+
+{% block content %}
+<div class="alert alert-info">
+<h4>{{ message_title }}</h4><br />
+<p>{{ message }}</p>
+<p><a href="javascript:history.go(-1)">后退</a> <a href="/">返回首页</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}用户信息{% endblock%}
+
+{% block content %}
+<div class="row">
+    <div class="span2"><img src="{{ MEDIA_URL }}{{ u.gravatar }}" /></div>
+    <div class="span8">
+        <h4>{{ u.username }}</h4>
+        <p>经验：{{ u.experience }} 点<br />
+        财富：{{ u.wealth }} ISK<br />
+        积分：{{ u.scores }} 分<br />
+        创建日期：{{ u.date_joined | date:"Y-m-d H:i:s" }}</p>
+    </div>
+    <div class="span2">
+        <ul class="nav nav-list" id="profile_operate">
+            <li><a href="#">关注TA</a></li>
+            <li><a href="#">给TA发站内信</a></li>
+            <li><a href="#">不想再看到TA了</a></li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="span2"></div>
+    <div class="span8">
+    	<p>性别：{{ u.gender }}</p>
+        <p>生日：{{ u.birthday | date:"Y-m-d" }}</p>
+        <p>居住地：{{ u.residence}}</p>
+        <p>YY号：{{ u.yy }}</p>
+        <p>QQ号：{{ u.qq }}</p>
+        <p>签名档：<blockquote>{{ u.signature }}</blockquote></p>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endblock %}

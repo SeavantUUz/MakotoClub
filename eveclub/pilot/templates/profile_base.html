@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="span2"><img src="{{ MEDIA_URL }}{{ user.gravatar }}" /></div>
+    <div class="span8">
+        <h4>{{ user.username }} ({{ user.email }})</h4>
+        <p>经验：{{ user.experience }} 点<br />
+        财富：{{ user.wealth }} ISK<br />
+        积分：{{ user.scores }} 分<br />
+        创建日期：{{ user.date_joined | date:"Y-m-d H:i:s" }}<br />
+        上次登录时间：{{ user.last_login | date:"Y-m-d H:i:s" }}<br />
+        上次登录IP：{{ user.last_login_ip }}<br />
+        登录次数：{{ user.login_times }}</p>
+    </div>
+    <div class="span2">
+        <ul class="nav nav-list" id="profile_operate">
+            <li><a href="/pilot/updateprofile/">修改个人信息</a></li>
+            <li><a href="/pilot/updategravatar/">修改头像</a></li>
+            <li><a href="/pilot/updatepassword/">修改密码</a></li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<hr>
+{% block operation %}{% endblock %}
+{% endblock %}

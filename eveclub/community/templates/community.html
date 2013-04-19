@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}EVEClub社区{% endblock %}
+
+{% block content %}
+<div class="row">
+{% for category in categories %}
+  <div class="span10"><h4>{{ category.name }}</h4></div>
+  {% for channel in category.channels %}
+  <div class="span5">
+    <div class="span1"><img src="{{ MEDIA_URL }}{{ channel.logo }}" /></div>
+    <div class="span3"><p><a href='/channel/{{ channel.id }}'>{{ channel.name }}</a><br />
+      {{ channel.description }}<br />
+      管理员：{% for m in channel.managers.all %}<a href='/pilot/{{ m.id }}'>{{ m.username }}</a> {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+  <div class="clearfix"></div>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

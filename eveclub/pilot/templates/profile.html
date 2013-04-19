@@ -1,0 +1,18 @@
+{% extends 'profile_base.html' %}
+
+{% block title %}用户信息{% endblock%}
+
+{% block operation %}
+<div class="row">
+    <div class="span2"></div>
+    <div class="span8">
+    	<p>性别：{{ user.gender }}</p>
+        <p>生日：{{ user.birthday | date:"Y-m-d" }}</p>
+        <p>居住地：{{ user.residence}}</p>
+        <p>YY号：{{ user.yy }}</p>
+        <p>QQ号：{{ user.qq }}</p>
+        <p>签名档：<blockquote>{{ user.signature }}</blockquote></p>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endblock %}

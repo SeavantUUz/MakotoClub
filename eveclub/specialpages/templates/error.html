@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}错误{% endblock %}
+
+{% block content %}
+<div class="alert alert-error">
+<h4>错误！</h4>
+<p>{{ message }}</p>
+<p><a href="javascript:history.go(-1)">后退</a> <a href="/">返回首页</a></p>
+</div>
+{% endblock %}

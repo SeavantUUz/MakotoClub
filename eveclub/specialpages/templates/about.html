@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}关于我们{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="span6">
+    <h1>EveClub Project</h1>
+
+    <h3>我们在干什么？</h3>
+    <p>我们是忠实的《EVE online星战前夜》玩家</p>
+    <p>我们的目标是建立新的《EVE online星战前夜》玩家社区</p>
+    <p>我们的动机：世纪天成的论坛能算论坛？</p>
+
+    <h3>如何参与我们？</h3>
+    <p>加入QQ群参与讨论：281254073</p>
+    <p>贡献您的代码：<a href="https://gitcafe.com/xchange/EveClub" target="_blank">项目代码Git仓库</a></p>
+    
+    <h3>相关资源</h3>
+    <p><a href="http://www.eveonline.com/community/toolkit.asp" target="_blank">CCP's EVE community toolkit</a></p>
+    <p><a href="http://www.ceve-market.org/" target="_blank">EVE国服市场中心</a></p>
+    <p><a href="http://wiki.eve-id.net/Equations" target="_blank">EVE中的计算公式</a></p>
+    <p><a href="http://www.fuzzwork.co.uk/dump/" target="_blank">EVE数据库文件MySQL版</a></p>
+  </div>
+  <div class="span6">
+    <p><img src="{{ STATIC_URL }}img/Retribution.jpg" width="400px" height="250px" /></p>
+    <p><img src="{{ STATIC_URL }}img/Inferno.jpg" width="400px" height="250px" /></p>
+  </div>
+  <div class="clearfix"></div>
+</div>
+{% endblock %}
