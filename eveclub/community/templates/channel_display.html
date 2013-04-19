@@ -32,8 +32,9 @@
     <p><a href="#" class="btn" onclick="$('#reply_form').show(); return false;">我要发帖</a></p>
 </div>
 <div id="reply_form">
-    <form action="/topic/new/" method="post">{% csrf_token %}
+    <form action="/community/topic/new/" method="post">{% csrf_token %}
         <input type="hidden" name="channel_id" value="{{ channel.id }}" />
+        <input type="hidden" name="topic_type" value="normal" />
         <p><label>标题：</label><input type="text" name="title" class="topic_title_input" /></p>
         <p><label>内容：</label><textarea name="content" class="reply_textarea"></textarea></p>
         <p><input type="submit" value="发布" class="btn" /> <a href="#" class="btn" onclick="$('#reply_form').hide(); return false;">算了不说了</a></p>

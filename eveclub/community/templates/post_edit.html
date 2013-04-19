@@ -1,0 +1,14 @@
+{% extends 'channel_base.html' %}
+
+{% block title %}编辑回复：{{ topic.title }}{% endblock %}
+
+{% block more_content %}
+
+<h4>编辑回复：{{topic.title }}</h4>
+<div>
+    <form action="" method="post">{% csrf_token %}
+        <p><label>回复内容：</label><textarea name="content" class="reply_textarea">{{ post.content }}</textarea></p>
+        <p><input type="submit" value="确认编辑" class="btn" /></p>
+    </form>
+</div>
+{% endblock %}
