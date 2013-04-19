@@ -94,7 +94,9 @@ def topic_new(request):
         u.experience += channel.topic_exp
         u.wealth     += channel.topic_wlt
         u.scores     += channel.topic_scr
-        u.save(update_fields=['experience', 'wealth', 'scores'])
+        u.topic_num  += 1
+        u.post_num   += 1
+        u.save(update_fields=['topic_num', 'post_num', 'experience', 'wealth', 'scores'])
         return HttpResponseRedirect('/channel/%d/' % channel_id)
     except CommunityError as e:
         return render_to_response('error.html', {'message': e.message}, context_instance=RequestContext(request))
@@ -132,7 +134,8 @@ def post_new(request):
             u.experience += channel.reply_exp
             u.wealth     += channel.reply_wlt
             u.scores     += channel.reply_scr
-            u.save(update_fields=['experience', 'wealth', 'scores'])
+            u.post_num   += 1
+            u.save(update_fields=['post_num', 'experience', 'wealth', 'scores'])
             return HttpResponseRedirect("/topic/%d/" % topic_id)
 
     except CommunityError as e:
