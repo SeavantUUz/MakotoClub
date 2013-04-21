@@ -3,6 +3,7 @@
 {% block title %}{{ topic.title }}{% endblock %}
 
 {% load markup %}
+{% load emotion %}
 
 {% block more_content %}
 <div class="display_topic">
@@ -18,7 +19,7 @@
         积分：{{ p.author.scores }} 分<br /></p>
     </td>
     <td width="85%" class="post_cell">
-        <div class="post_content">{{ p.content | markdown:"safe" }}{% ifequal p.create_time p.update_time %}{% else %}</div>
+        <div class="post_content">{{ p.content | markdown:"safe" | emotion }}{% ifequal p.create_time p.update_time %}{% else %}</div>
         <p class="post_modify_note">[{{ p.author }} 于 {{ p.update_time | date:"Y-m-d H:i"}} 修改了帖子内容]{% endifequal %}</p>
     </td>
 </tr>
