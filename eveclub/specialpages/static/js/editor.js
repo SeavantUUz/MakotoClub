@@ -49,7 +49,27 @@ function insertEmotion(emotion) {
   insertAtCaret('editor', emotion_str);
 }
 
-page_num = 3;
+function insertA() {
+  a_text=$("#a_text");
+  a_url=$("#a_url");
+  a_text_value=a_text.val();
+  a_url_value=a_url.val();
+  re=/^(http|https|ftp)\:\/\//i;
+
+  if (a_text_value.length<1) {
+    alert("请输入链接文字！");
+    return false;
+  }
+  if (!re.test(a_url_value)) {
+    alert("请输入正确的地址！");
+    return false;
+
+  }
+  a_str = '['+a_text_value+']('+a_url_value+')';
+  insertAtCaret('editor', a_str);
+}
+
+page_num = 4;
 
 hideAllEmotionPage();
 showEmotionPage(1);
