@@ -16,7 +16,7 @@
 {% for t in topics %}
 <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
   <td>{% if t.is_sticky %}置顶{% endif %}{% if t.is_essence %}<br />精华{t.essence_level}{% endif %}</td>
-  <td class="topic_list_title"><a href="/topic/{{ t.id }}">{{ t.title }}</a><br /><span style="color: #777">{{ t.shortcontent | slice:":36"}}</span></td>
+  <td class="topic_list_title"><a href="/topic/{{ t.id }}/">{{ t.title }}</a><br /><span style="color: #333">{{ t.shortcontent | slice:":36"}}</span></td>
   <td><a href='/pilot/{{ t.create_author.id }}/'>{{ t.create_author }}</a><br />{{ t.create_time | date:"Y-m-d H:i"}}</td>
   <td><a href='/pilot/{{ t.update_author.id }}/'>{{ t.update_author }}</a><br />{{ t.update_time | date:"Y-m-d H:i"}}</td>
   <td>{{ t.clicks }}</td>
