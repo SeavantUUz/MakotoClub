@@ -13,7 +13,7 @@
 <tr>
     <td rowspan="2" width="15%">
         <p><img src="{{ MEDIA_URL }}{{ p.author.gravatar }}" /><br />
-        <strong>{{ p.author.username }}</strong><br />
+        <strong><a href="/pilot/{{ p.author.id }}/">{{ p.author.username }}</a></strong><br />
         经验：{{ p.author.experience }} 点<br />
         财富：{{ p.author.wealth }} ISK<br />
         积分：{{ p.author.scores }} 分<br /></p>
