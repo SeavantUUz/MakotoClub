@@ -1,9 +1,13 @@
 #coding: utf-8
 
+import os
+from PIL import Image
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
+from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
+from eveclub.settings import MEDIA_ROOT
 from community.config import *
 from community.lib import *
 from community.models import *
@@ -171,3 +175,30 @@ def post_edit(request, post_id):
 
     except CommunityError as e:
         return render_to_response('error.html', {'message': e.message}, context_instance=RequestContext(request))
+
+@login_required
+def upload_img(request):
+    if request.method == "POST":
+        img = Image.open(request.FILES['upload_img'])
+        if not os.path.exists(MEDIA_ROOT+'upload'):
+            os.mkdir(MEDIA_ROOT+'upload')
+        t = now()
+        year = t.year
+        path = '%supload/%d' % (MEDIA_ROOT, year)
+        if not os.path.exists(path):
+            os.mkdir(path)
+        month = t.month
+        path =  '%s/%d' % (path, month)
+        if not os.path.exists(path):
+            os.mkdir(path)
+        day = t.day
+        path =  '%s/%d' % (path, day)
+        if not os.path.exists(path):
+            os.mkdir(path)
+        name = '%s.png' % t.strftime('%H%M%S%f')[:-3];
+        path = '%s/%s' % (path, name)
+        url = '/media/upload/%s/%s/%s/%s' % (t.year, t.month, t.day, name)
+        img.save(path)
+        return render_to_response('upload_img_ok.html', {'url': url, 'name': name}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('upload_img.html', context_instance=RequestContext(request))

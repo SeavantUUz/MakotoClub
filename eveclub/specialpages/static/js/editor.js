@@ -69,7 +69,12 @@ function insertA() {
   insertAtCaret('editor', a_str);
 }
 
-page_num = 4;
+function insertImg(url) {
+  img_str = "![用户上传图片]("+url+")";
+  insertAtCaret('editor', img_str);
+}
+
+page_num = 5;
 
 hideAllEmotionPage();
 showEmotionPage(1);

@@ -5,6 +5,7 @@
     <button class="btn" onclick="showEmotionPage(2)">表情2</button>
     <button class="btn" onclick="showEmotionPage(3)">表情3</button>
     <button class="btn" onclick="showEmotionPage(4)">链接</button>
+    <button class="btn" onclick="showEmotionPage(5)">图片</button>
   </div>
   <div id="page1" class="emotion_selector_page">
     <img src="/static/img/em/ac01.gif" onclick="insertEmotion('ac01')" />
@@ -72,6 +73,10 @@
         <p><label>地址：</label><input type="text" id="a_url" /></p>
         <p><a class="btn" onclick="insertA();return false;">插入链接</a></p>
     </form>
+  </div>
+  <div id="page5" class="emotion_selector_page">
+    <iframe src="/community/upload_img/" class="upload_iframe"></iframe>
+    <div id="image_list"></div>
   </div>
 </div>
 <script src="{{ STATIC_URL }}js/editor.js"></script>

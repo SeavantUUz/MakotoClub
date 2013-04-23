@@ -51,5 +51,19 @@
 &copy; EveClub Develop Group 2012-2013
 </footer>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("[alt='用户上传图片']").each(function() {
+    maxWidth=750;
+    width = $(this).width();
+    height = $(this).height();
+    if (width>maxWidth) {
+      ratio = maxWidth/width;
+      $(this).css('width', maxWidth);
+      $(this).css('height', height*ratio);
+    }
+  })
+})
+</script>
 </body>
 </html>
