@@ -19,14 +19,13 @@
         积分：{{ p.author.scores }} 分<br /></p>
     </td>
     <td width="85%" class="post_cell">
-        <div class="post_content">{{ p.content | markdown:"safe" | emotion }}{% ifequal p.create_time p.update_time %}{% else %}
-        <p class="post_modify_note">[{{ p.author }} 于 {{ p.update_time | date:"Y-m-d H:i"}} 修改了帖子内容]</p>{% endifequal %}</div>
+        <div class="post_content">{{ p.content | markdown:"safe" | emotion }}{% ifequal p.create_time p.update_time %}{% else %}<p class="post_modify_note">[{{ p.author }} 于 {{ p.update_time | date:"Y-m-d H:i"}} 修改了帖子内容]</p>{% endifequal %}</div>
     </td>
 </tr>
 <tr>
     <td class="end_post">
-        {% ifequal p.author.username user.username %}<a href="/community/post/edit/{{ p.id }}/">编辑</a> |
-        {% endifequal %}{% ifequal p.floor 0 %}楼主{% else %}{{ p.floor}}楼{% endifequal %} | {{ p.create_time | date:"Y-m-d H:i" }}
+        <div style="text-align: left;">{% if p.author.signature %}<hr>{{ p.author.signature | markdown:"safe" | emotion }}{% endif %}</div><div>{% ifequal p.author.username user.username %}<a href="/community/post/edit/{{ p.id }}/">编辑</a> |
+        {% endifequal %}{% ifequal p.floor 0 %}楼主{% else %}{{ p.floor}}楼{% endifequal %} | {{ p.create_time | date:"Y-m-d H:i" }}</div>
     </td>
 </tr>
 
