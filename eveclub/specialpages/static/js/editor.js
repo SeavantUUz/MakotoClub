@@ -74,6 +74,12 @@ function insertImg(url) {
   insertAtCaret('editor', img_str);
 }
 
+$(document).keypress(function(e){
+  if (e.ctrlKey && e.which == 13 || e.which == 10) { 
+    $("#editor_form").submit();
+    document.body.focus();
+  }     
+})
 page_num = 5;
 
 hideAllEmotionPage();

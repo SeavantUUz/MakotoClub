@@ -33,7 +33,7 @@
 </div>
 <div id="reply_form" class="row">
   <div class="span8">
-  <form action="/community/topic/new/" method="post">{% csrf_token %}
+  <form id="editor_form" action="/community/topic/new/" method="post">{% csrf_token %}
     <input type="hidden" name="channel_id" value="{{ channel.id }}" />
     <input type="hidden" name="topic_type" value="normal" />
     <p><label>标题：</label><input type="text" name="title" class="topic_title_input" /></p>

@@ -38,7 +38,7 @@
 </div>
 <div id="reply_form" class="row">
   <div class="span8">
-    <form action="/community/post/new/" method="post">{% csrf_token %}
+    <form id="editor_form" action="/community/post/new/" method="post">{% csrf_token %}
         <input type="hidden" name="topic_id" value="{{ topic.id }}" />
         <p><label>回复内容：</label><textarea id="editor" name="content" class="reply_textarea"></textarea></p>
         <p><input type="submit" value="回复" class="btn" /> <a href="#" class="btn" onclick="$('#reply_form').hide(); return false;">算了不说了</a></p>
