@@ -80,7 +80,9 @@ $(document).keypress(function(e){
     document.body.focus();
   }     
 })
-page_num = 5;
 
-hideAllEmotionPage();
-showEmotionPage(1);
+$(document).ready(function() {
+  page_num = 5;
+  hideAllEmotionPage();
+  showEmotionPage(1);
+})

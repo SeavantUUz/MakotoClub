@@ -6,10 +6,10 @@ from django.utils.timezone import now
 from datetime import timedelta
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
-from django.template import RequestContext
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from eveclub.settings import MEDIA_ROOT, PROJECT_SERVER
+from eveclub.lib import RequestContext
 from pilot.models import *
 from pilot.forms import *
 
@@ -147,7 +147,7 @@ def updategravatar(request):
                 img.save(MEDIA_ROOT+filepath)
                 request.session['gravatar_step'] = 1
                 request.session['gravatar_expire_time'] = now()+timedelta(minutes=GRAVATAR_SESSION_MINUTES)
-                return render_to_response('crop.html', {'filepath': filepath} , context_instance=RequestContext(request))
+                return render_to_response('crop.html', {'filepath': filepath, 'extra_js': ('pilot/jquery.Jcrop.js', 'pilot/crop.js',)} , context_instance=RequestContext(request))
         else:
             if os.path.exists(MEDIA_ROOT+filepath):
                 os.remove(MEDIA_ROOT+filepath)
@@ -190,7 +190,7 @@ def updategravatar(request):
             return render_to_response('crop.html', {'crop_ok': True}, context_instance=RequestContext(request))
         else:
             if now() < gravatar_expire_time and os.path.exists(MEDIA_ROOT+filepath):
-                return render_to_response('crop.html', {'filepath': filepath} , context_instance=RequestContext(request))
+                return render_to_response('crop.html', {'filepath': filepath, 'extra_js': ('pilot/jquery.Jcrop.js', 'pilot/crop.js',)} , context_instance=RequestContext(request))
             else:
                 request.session['gravatar_step'] = 0
                 request.session['gravatar_expire_time'] = now()

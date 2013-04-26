@@ -4,8 +4,6 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>EveClub {% block title%}{% endblock %}</title>
-  <script src="{{ STATIC_URL }}js/jquery.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
   <!-- Le styles -->
   <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
   <link href="{{ STATIC_URL }}css/eveclub.css" rel="stylesheet">
@@ -51,19 +49,10 @@
 &copy; EveClub Develop Group 2012-2013
 </footer>
 </div>
-<script type="text/javascript">
-$(document).ready(function() {
-  $("[alt='用户上传图片']").each(function() {
-    maxWidth=750;
-    width = $(this).width();
-    height = $(this).height();
-    if (width>maxWidth) {
-      ratio = maxWidth/width;
-      $(this).css('width', maxWidth);
-      $(this).css('height', height*ratio);
-    }
-  })
-})
-</script>
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script src="http://lib.sinaapp.com/js/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+{% for js in extra_js %}<script src="{{ STATIC_URL }}js/{{ js }}"></script>{% endfor %}
+{% if stat_js %}<script type="text/javascript">
+{{ stat_js | safe }}</script>{% endif %}
 </body>
 </html>

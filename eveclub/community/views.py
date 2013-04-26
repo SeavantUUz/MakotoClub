@@ -2,12 +2,12 @@
 
 import os
 from PIL import Image
-from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from eveclub.settings import MEDIA_ROOT
+from eveclub.lib import RequestContext
 from community.config import *
 from community.lib import *
 from community.models import *
@@ -50,7 +50,7 @@ def topic_display(request, topic_id):
         posts = topic.post_set.filter(is_active=True)
     topic.clicks +=1
     topic.save(update_fields=['clicks'])
-    return render_to_response('topic_display.html', {'channel': chnl, 'topic': topic, 'posts': posts}, context_instance=RequestContext(request))
+    return render_to_response('topic_display.html', {'channel': chnl, 'topic': topic, 'posts': posts, 'extra_js': ('community/editor.js','community/resize_images.js',)}, context_instance=RequestContext(request))
 
 @login_required
 def topic_new(request):

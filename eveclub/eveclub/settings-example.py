@@ -177,3 +177,5 @@ EMAIL_PORT = '25'
 EMAIL_HOST_USER = 'example@example.com'
 EMAIL_HOST_PASSWORD = 'example'
 EMAIL_USE_TLS = False
+
+STAT_JS = ''
