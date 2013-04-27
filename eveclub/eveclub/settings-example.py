@@ -171,6 +171,8 @@ LOGGING = {
 
 AUTH_USER_MODEL = 'pilot.Pilot'
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/pilot/login/'
+LOGOUT_URL = '/pilot/logout/'
 
 EMAIL_HOST = 'smtp.example.com'
 EMAIL_PORT = '25'
