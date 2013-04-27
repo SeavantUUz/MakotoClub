@@ -4,7 +4,7 @@
 <div class="row">
     <div class="span1" style="padding-top: 1em;"><img src="{{ MEDIA_URL }}{{ channel.logo }}" /></div>
     <div class="span9">
-        <h4>{{ channel.name }}</h4>
+        <h4><a href="/channel/{{ channel.id }}">{{ channel.name }}</a></h4>
         <p>{{ channel.description }}<br />
         创建者：<a href="/pilot/{{ channel.creator.id }}/">{{ channel.creator.username }}</a> | 
         管理员：{% for u in channel.managers.all %}<a href="/pilot/{{ u.id }}/">{{ u.username }}</a> {% endfor %} | 
