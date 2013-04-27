@@ -74,6 +74,21 @@ function insertImg(url) {
   insertAtCaret('editor', img_str);
 }
 
+function reply(floor, post_id) {
+  $('#reply_form').show();
+  if (floor!=0) {
+    url = '/community/post/get_for_reply/'+post_id+'/';
+    $.get(url, function(data) {
+      if (data!='') {
+        content = '回复第'+floor+'楼:\n'+data+'\n\n';
+        $("#editor").html(content);
+      }
+      else return false;
+    });
+  }
+  $("#editor").focus();
+}
+
 $(document).keypress(function(e){
   if (e.ctrlKey && e.which == 13 || e.which == 10) { 
     $("#editor_form").submit();

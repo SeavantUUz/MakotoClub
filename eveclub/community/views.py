@@ -3,6 +3,7 @@
 import os
 from PIL import Image
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
@@ -202,3 +203,28 @@ def upload_img(request):
         return render_to_response('upload_img_ok.html', {'url': url, 'name': name}, context_instance=RequestContext(request))
     else:
         return render_to_response('upload_img.html', context_instance=RequestContext(request))
+
+@login_required
+def get_post_for_reply(request, post_id):
+    try:
+        try:
+            post = Post.objects.get(id=int(post_id))
+        except Post.DoesNotExist:
+            raise CommunityError(u'您试图回复不存在的帖子！')
+        topic = post.topic
+        if not topic.is_active:
+            raise CommunityError(u'您试图编辑已删除主题中的内容！')
+        if topic.is_locked:
+            raise CommunityError(u'您试图回复已锁定的主题！')
+        channel = topic.channel
+        if not channel.is_active:
+            raise CommunityError(u'您试图编辑已删除频道中的内容！')
+        content = post.content
+        content_lines = ['>'+l.rstrip() for l in content.split('\n')]
+        if len(content_lines)>6:
+            content_lines = content_lines[:6]
+            content_lines.append('>......')
+        return HttpResponse('\n'.join(content_lines))
+
+    except CommunityError as e:
+        return HttpResponse('')

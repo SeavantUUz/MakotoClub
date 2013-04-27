@@ -24,7 +24,7 @@
 </tr>
 <tr>
     <td class="end_post">
-        <div style="text-align: left;">{% if p.author.signature %}<hr>{{ p.author.signature | markdown:"safe" | emotion }}{% endif %}</div><div>{% ifequal p.author.username user.username %}<a href="/community/post/edit/{{ p.id }}/">编辑</a> |
+        <div style="text-align: left;">{% if p.author.signature %}<hr>{{ p.author.signature | markdown:"safe" | emotion }}{% endif %}</div><div><a href="#" onclick="reply({{ p.floor }},{{ p.id }});return false;">回复</a> | {% ifequal p.author.username user.username %}<a href="/community/post/edit/{{ p.id }}/">编辑</a> |
         {% endifequal %}{% ifequal p.floor 0 %}楼主{% else %}{{ p.floor}}楼{% endifequal %} | {{ p.create_time | date:"Y-m-d H:i" }}</div>
     </td>
 </tr>
