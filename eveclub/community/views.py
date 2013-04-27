@@ -32,7 +32,7 @@ def channel_display(request, channel_id):
     sticky_topics = chnl.topics.filter(is_active=True, is_sticky=True).order_by('sticky_order')
     normal_topics = chnl.topics.filter(is_active=True, is_sticky=False)
     topics = [t for t in sticky_topics] + [t for t in normal_topics]
-    return render_to_response('channel_display.html', {'channel': chnl, 'topics': topics}, context_instance=RequestContext(request))
+    return render_to_response('channel_display.html', {'channel': chnl, 'topics': topics, 'extra_js': ('community/editor.js','community/resize_images.js',)}, context_instance=RequestContext(request))
 
 def topic_display(request, topic_id):
     try:
@@ -171,7 +171,7 @@ def post_edit(request, post_id):
             post.save()
             return HttpResponseRedirect("/topic/%d/" % topic.id)
         else:
-            return render_to_response('post_edit.html', {'channel': channel, 'topic': topic, 'post': post}, context_instance=RequestContext(request))
+            return render_to_response('post_edit.html', {'channel': channel, 'topic': topic, 'post': post, 'extra_js': ('community/editor.js','community/resize_images.js',)}, context_instance=RequestContext(request))
 
     except CommunityError as e:
         return render_to_response('error.html', {'message': e.message}, context_instance=RequestContext(request))
