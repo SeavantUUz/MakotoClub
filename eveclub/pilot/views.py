@@ -147,7 +147,7 @@ def updategravatar(request):
                 img.save(MEDIA_ROOT+filepath)
                 request.session['gravatar_step'] = 1
                 request.session['gravatar_expire_time'] = now()+timedelta(minutes=GRAVATAR_SESSION_MINUTES)
-                return render_to_response('crop.html', {'filepath': filepath, 'extra_js': ('pilot/jquery.Jcrop.js', 'pilot/crop.js',)} , context_instance=RequestContext(request))
+                return render_to_response('crop.html', {'filepath': filepath, 'extra_css': ('pilot/jquery.Jcrop.min.css',), 'extra_js': ('pilot/jquery.Jcrop.js', 'pilot/crop.js',)} , context_instance=RequestContext(request))
         else:
             if os.path.exists(MEDIA_ROOT+filepath):
                 os.remove(MEDIA_ROOT+filepath)
@@ -190,7 +190,7 @@ def updategravatar(request):
             return render_to_response('crop.html', {'crop_ok': True}, context_instance=RequestContext(request))
         else:
             if now() < gravatar_expire_time and os.path.exists(MEDIA_ROOT+filepath):
-                return render_to_response('crop.html', {'filepath': filepath, 'extra_js': ('pilot/jquery.Jcrop.js', 'pilot/crop.js',)} , context_instance=RequestContext(request))
+                return render_to_response('crop.html', {'filepath': filepath, 'extra_css': ('pilot/jquery.Jcrop.min.css',), 'extra_js': ('pilot/jquery.Jcrop.js', 'pilot/crop.js',)} , context_instance=RequestContext(request))
             else:
                 request.session['gravatar_step'] = 0
                 request.session['gravatar_expire_time'] = now()

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="span1" style="padding-top: 1em;"><img src="{{ MEDIA_URL }}{{ channel.logo }}" /></div>
-    <div class="span9">
+<div id="channel_info" class="row">
+    <div id="channel_logo" class="span1"><img src="{{ MEDIA_URL }}{{ channel.logo }}" /></div>
+    <div id="channel_description" class="span9">
         <h4><a href="/channel/{{ channel.id }}">{{ channel.name }}</a></h4>
         <p>{{ channel.description }}<br />
         创建者：<a href="/pilot/{{ channel.creator.id }}/">{{ channel.creator.username }}</a> | 

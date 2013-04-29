@@ -1,17 +1,13 @@
+/* Global settings */
 body {
   padding-top: 50px;
+  font-size: 14px;
   font-family: "Trebuchet MS", "Helvetica Neue", Helvetica, SimSun, Arial, sans-serif;
   color: #000;
 }
-h1, h2, h3, h4, h5, h6, #global_navbar_catalog li a {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Trebuchet MS", "Helvetica Neue", Helvetica, "Microsoft YaHei", Arial, SimHei, sans-serif;
-
-}
-h3 {
-  line-height: 200%; 
-}
-h4, h5, h6 {
-  line-height: 150%; 
+  line-height: 150%;
 }
 hr {
   margin: 10px 0;
@@ -20,6 +16,7 @@ footer {
   text-align: center;
 }
 
+/* 顶部导航 */
 #global_navbar .brand {
   color: #FFF;
   font-weight: bold;
@@ -27,10 +24,10 @@ footer {
 #global_navbar_catalog li a {
   color: #EEE;
   font-size: 1.2em;
+  font-family: "Trebuchet MS", "Helvetica Neue", Helvetica, "Microsoft YaHei", Arial, SimHei, sans-serif;
   font-weight: bold;
   padding: 10px;
 }
-
 #global_navbar_profile li a.dropdown-toggle, #global_navbar_login li a {
   color: #FFF;
   background: #2C2C2C;
@@ -51,18 +48,66 @@ footer {
   padding-top: 40px;
 }
 
+/* 社区页面 */
+#channel_logo {
+  padding-top: 1em;
+}
+#channel_description {
+  font-size: 12px;
+}
+#channel_description h4 a {
+  color: #000;
+}
 table, th, td {
   border: 1px solid #DDD;
 }
-
 table {
   margin-bottom: 1em;
 }
-
-th, td {
-  padding: 5px;
+.topic_list table td {
+  text-align: center;
 }
-
+.topic_list table tr.odd {
+  background: #F6F6FF;
+}
+.topic_list table tr.even {
+  background: #FFF;
+}
+.topic_list_header {
+  font-size: 12px;
+}
+.topic_list td {
+  padding: 3px 2px;
+}
+.topic_list_status {
+  width: 6%;
+  font-size: 12px;
+}
+.odd td.topic_list_title, .even td.topic_list_title {
+  text-align: left;
+}
+.topic_list_header td.topic_list_title {
+  text-align: center;
+}
+.topic_list_title a {
+  color: #06F;
+}
+.topic_list_author {
+  width: 13%;
+  font-size: 12px;
+}
+.topic_list_last_reply {
+  width: 13%;
+  font-size: 12px;
+}
+.topic_list_clicks {
+  width: 5%;
+  font-size: 12px;
+}
+.topic_list_replies {
+  width: 5%;
+  font-size: 12px;
+}
 .display_topic {
 }
 
@@ -128,18 +173,7 @@ th, td {
     width: 40em;
 }
 
-#topic_list table td {
-    text-align: center;
-}
-#topic_list table td.topic_list_title {
-    text-align: left;
-}
-#topic_list table tr.odd {
-    background: #F6F6FF;
-}
-#topic_list table tr.even {
-    background: #FFF;
-}
+
 
 #emotion_selector img {
   width: 50px;
