@@ -1,5 +1,6 @@
 #coding: utf-8
 
+import functools
 from django.shortcuts import render_to_response
 from eveclub.lib import RequestContext
 
@@ -10,6 +11,7 @@ class CommunityError(Exception):
         return self.message
 
 def error_handler(view_func):
+    @functools.wraps(view_func)
     def wrapper(request, *args, **kwargs):
         try:
             result = view_func(request, *args, **kwargs)

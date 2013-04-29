@@ -42,9 +42,9 @@ def topic_display(request, topic_id):
         topic = Topic.objects.get(id=topic_id)
     except Topic.DoesNotExist:
         raise CommunityError(u'您访问的主题不存在！')
-    chnl = topic.channel
-    if not chnl.is_active:
+    if not topic.is_active:
         raise CommunityError(u'您访问的主题已删除！')
+    chnl = topic.channel
     if not chnl.is_active:
         raise CommunityError(u'您访问的频道已关闭！')
 
