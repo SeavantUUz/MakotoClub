@@ -92,6 +92,9 @@ table {
 .topic_list_header td.topic_list_title {
   text-align: center;
 }
+.topic_list td.topic_list_title {
+  padding: 3px 4px;
+}
 .topic_list_author {
   width: 13%;
   font-size: 12px;
@@ -192,7 +195,9 @@ table {
   height: 70px;
   border: 0;
 }
-
+#link .btn {
+  font-size: 12px;
+}
 #upload_img_page {
   margin: 0;
   padding: 0;
