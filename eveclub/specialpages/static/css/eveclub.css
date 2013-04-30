@@ -135,8 +135,6 @@ table {
   border-top: 1px dashed #AAA;
 }
 .topic_display .post_footnote .post_actions {
-  margin-top: -7px;
-  margin-bottom: -7px;
   text-align: right;
   font-size: 12px;
 }
