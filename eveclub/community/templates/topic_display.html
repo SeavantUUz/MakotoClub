@@ -2,8 +2,7 @@
 
 {% block title %}{{ topic.title }}{% endblock %}
 
-{% load markup %}
-{% load emotion %}
+{% load ecFilters %}
 
 {% block more_content %}
 <div class="topic_display">
@@ -19,12 +18,12 @@
         积分：{{ p.author.scores }} 分<br /></p>
     </td>
     <td class="post_body">
-        <div class="post_content">{{ p.content | markdown:"safe" | emotion }}{% ifequal p.create_time p.update_time %}{% else %}<p class="post_modify_note">[{{ p.author }} 于 {{ p.update_time | date:"Y-m-d H:i"}} 修改了帖子内容]</p>{% endifequal %}</div>
+        <div class="post_content">{{ p.content | markdown }}{% ifequal p.create_time p.update_time %}{% else %}<p class="post_modify_note">[{{ p.author }} 于 {{ p.update_time | date:"Y-m-d H:i"}} 修改了帖子内容]</p>{% endifequal %}</div>
     </td>
 </tr>
 <tr>
     <td class="post_footnote">
-        <div class="post_signature">{% if p.author.signature %}{{ p.author.signature | markdown:"safe" | emotion }}{% endif %}</div>
+        <div class="post_signature">{% if p.author.signature %}{{ p.author.signature | markdown }}{% endif %}</div>
         <div class="post_actions"><a href="#" onclick="reply({{ p.floor }},{{ p.id }});return false;">回复</a> | {% ifequal p.author.username user.username %}<a href="/community/post/edit/{{ p.id }}/">编辑</a> |
         {% endifequal %}{% ifequal p.floor 0 %}楼主{% else %}{{ p.floor}}楼{% endifequal %} | {{ p.create_time | date:"Y-m-d H:i" }}</div>
     </td>

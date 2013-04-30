@@ -195,7 +195,7 @@ def upload_img(request):
         path = '%s/%s' % (path, name)
         url = '/media/upload/%s/%s/%s/%s' % (t.year, t.month, t.day, name)
         img.save(path)
-        return render_to_response('upload_img_ok.html', {'url': url, 'name': name}, context_instance=RequestContext(request))
+        return render_to_response('upload_img.html', {'upload_ok': True, 'url': url, 'name': name}, context_instance=RequestContext(request))
     else:
         return render_to_response('upload_img.html', context_instance=RequestContext(request))
 
