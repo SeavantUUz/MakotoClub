@@ -23,11 +23,18 @@ def f_markdown(value):
     result = result.replace('[HTML_REMOVED]', '')
     return result
 
+def f_breakline(value):
+    result = value.replace('\n', '<br />\n')
+    result = result.replace('</p><br />', '</p>')
+    result = result.replace('<blockquote><br />', '<blockquote>')
+    result = result.replace('</blockquote><br />', '</blockquote>')
+    return result
+
 def f_emotion(value):
     import re
     pattern = re.compile(r'\[em (ac)(\d{2})\]')
     html = r'<img class="emotion_\1" src="/static/img/em/\1\2.gif" />'
-    result, number = pattern.subn(html, value)
+    result = pattern.sub(html, value)
     return result
 
 def f_striphtml(value):
@@ -42,5 +49,6 @@ def f_unescape(value):
 @register.filter(is_safe=True)
 def markdown(value):
     result = f_markdown(value)
+    result = f_breakline(result)
     result = f_emotion(result)
     return mark_safe(result)

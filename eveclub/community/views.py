@@ -215,7 +215,7 @@ def get_post_for_reply(request, post_id):
         if not channel.is_active:
             raise CommunityError(u'您试图编辑已删除频道中的内容！')
         content = post.content
-        content_lines = ['>'+l.rstrip() for l in content.split('\n')]
+        content_lines = ['>'+l.strip() for l in content.split('\n')]
         if len(content_lines)>6:
             content_lines = content_lines[:6]
             content_lines.append('>......')
