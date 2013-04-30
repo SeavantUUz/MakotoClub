@@ -29,7 +29,7 @@
 
 {% if user.is_authenticated %}
 <div class="user_action">
-  <p><a href="#" class="btn" onclick="$('#reply_form').show(); return false;">我要发帖</a></p>
+  <p><a href="#" class="btn btn-primary" onclick="$('#reply_form').show(); return false;">我要发帖</a></p>
 </div>
 <div id="reply_form" class="row">
   <div class="span8">
@@ -38,7 +38,7 @@
     <input type="hidden" name="topic_type" value="normal" />
     <p><label>标题：</label><input type="text" name="title" class="topic_title_input" /></p>
     <p><label>内容：</label><textarea id="editor" name="content" class="reply_textarea"></textarea></p>
-    <p><input type="submit" value="发布" class="btn" /> <a href="#" class="btn" onclick="$('#reply_form').hide(); return false;">算了不说了</a></p>
+    <p><input type="submit" value="回复" class="btn btn-primary" /> <a href="#" type="reset" class="btn btn-inverse">重置</a></p>
   </form>
   </div>
   {% include 'editor.html' %}

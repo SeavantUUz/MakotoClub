@@ -1,80 +1,82 @@
-<div id="emotion_selector" class="span4">
-  <div class="btn-group">
-    <button class="btn" onclick="showEmotionPage(1)">表情1</button>
-    <button class="btn" onclick="showEmotionPage(2)">表情2</button>
-    <button class="btn" onclick="showEmotionPage(3)">表情3</button>
-    <button class="btn" onclick="showEmotionPage(4)">链接</button>
-    <button class="btn" onclick="showEmotionPage(5)">图片</button>
-  </div>
-  <div id="page1" class="emotion_selector_page">
-    <img src="/static/img/em/ac01.gif" onclick="insertEmotion('ac01')" />
-    <img src="/static/img/em/ac02.gif" onclick="insertEmotion('ac02')" />
-    <img src="/static/img/em/ac03.gif" onclick="insertEmotion('ac03')" />
-    <img src="/static/img/em/ac04.gif" onclick="insertEmotion('ac04')" />
-    <img src="/static/img/em/ac05.gif" onclick="insertEmotion('ac05')" />
-    <img src="/static/img/em/ac06.gif" onclick="insertEmotion('ac06')" />
-    <img src="/static/img/em/ac07.gif" onclick="insertEmotion('ac07')" />
-    <img src="/static/img/em/ac08.gif" onclick="insertEmotion('ac08')" />
-    <img src="/static/img/em/ac09.gif" onclick="insertEmotion('ac09')" />
-    <img src="/static/img/em/ac10.gif" onclick="insertEmotion('ac10')" />
-    <img src="/static/img/em/ac11.gif" onclick="insertEmotion('ac11')" />
-    <img src="/static/img/em/ac12.gif" onclick="insertEmotion('ac12')" />
-    <img src="/static/img/em/ac13.gif" onclick="insertEmotion('ac13')" />
-    <img src="/static/img/em/ac14.gif" onclick="insertEmotion('ac14')" />
-    <img src="/static/img/em/ac15.gif" onclick="insertEmotion('ac15')" />
-    <img src="/static/img/em/ac16.gif" onclick="insertEmotion('ac16')" />
-    <img src="/static/img/em/ac17.gif" onclick="insertEmotion('ac17')" />
-    <img src="/static/img/em/ac18.gif" onclick="insertEmotion('ac18')" />
-    <img src="/static/img/em/ac19.gif" onclick="insertEmotion('ac19')" />
-    <img src="/static/img/em/ac20.gif" onclick="insertEmotion('ac20')" />
-    <img src="/static/img/em/ac21.gif" onclick="insertEmotion('ac21')" />
-    <img src="/static/img/em/ac22.gif" onclick="insertEmotion('ac22')" />
-    <img src="/static/img/em/ac23.gif" onclick="insertEmotion('ac23')" />
-    <img src="/static/img/em/ac24.gif" onclick="insertEmotion('ac24')" />
-    <img src="/static/img/em/ac25.gif" onclick="insertEmotion('ac25')" />
-  </div>
-  <div id="page2" class="emotion_selector_page">
-    <img src="/static/img/em/ac26.gif" onclick="insertEmotion('ac26')" />
-    <img src="/static/img/em/ac27.gif" onclick="insertEmotion('ac27')" />
-    <img src="/static/img/em/ac28.gif" onclick="insertEmotion('ac28')" />
-    <img src="/static/img/em/ac29.gif" onclick="insertEmotion('ac29')" />
-    <img src="/static/img/em/ac30.gif" onclick="insertEmotion('ac30')" />
-    <img src="/static/img/em/ac31.gif" onclick="insertEmotion('ac31')" />
-    <img src="/static/img/em/ac32.gif" onclick="insertEmotion('ac32')" />
-    <img src="/static/img/em/ac33.gif" onclick="insertEmotion('ac33')" />
-    <img src="/static/img/em/ac34.gif" onclick="insertEmotion('ac34')" />
-    <img src="/static/img/em/ac35.gif" onclick="insertEmotion('ac35')" />
-    <img src="/static/img/em/ac36.gif" onclick="insertEmotion('ac36')" />
-    <img src="/static/img/em/ac37.gif" onclick="insertEmotion('ac37')" />
-    <img src="/static/img/em/ac38.gif" onclick="insertEmotion('ac38')" />
-    <img src="/static/img/em/ac39.gif" onclick="insertEmotion('ac39')" />
-    <img src="/static/img/em/ac40.gif" onclick="insertEmotion('ac40')" />
-    <img src="/static/img/em/ac41.gif" onclick="insertEmotion('ac41')" />
-    <img src="/static/img/em/ac42.gif" onclick="insertEmotion('ac42')" />
-    <img src="/static/img/em/ac43.gif" onclick="insertEmotion('ac43')" />
-    <img src="/static/img/em/ac44.gif" onclick="insertEmotion('ac44')" />
-    <img src="/static/img/em/ac45.gif" onclick="insertEmotion('ac45')" />
-    <img src="/static/img/em/ac46.gif" onclick="insertEmotion('ac46')" />
-    <img src="/static/img/em/ac47.gif" onclick="insertEmotion('ac47')" />
-    <img src="/static/img/em/ac48.gif" onclick="insertEmotion('ac48')" />
-    <img src="/static/img/em/ac49.gif" onclick="insertEmotion('ac49')" />
-    <img src="/static/img/em/ac50.gif" onclick="insertEmotion('ac50')" />
-  </div>
-  <div id="page3" class="emotion_selector_page">
-    <img src="/static/img/em/ac51.gif" onclick="insertEmotion('ac51')" />
-    <img src="/static/img/em/ac52.gif" onclick="insertEmotion('ac52')" />
-    <img src="/static/img/em/ac53.gif" onclick="insertEmotion('ac53')" />
-    <img src="/static/img/em/ac54.gif" onclick="insertEmotion('ac54')" />
-  </div>
-  <div id="page4" class="emotion_selector_page">
-    <form id="insertLinkForm">
-        <p><label>文字：</label><input type="text" id="a_text" /></p>
-        <p><label>地址：</label><input type="text" id="a_url" /></p>
-        <p><a class="btn" onclick="insertA();return false;">插入链接</a></p>
-    </form>
-  </div>
-  <div id="page5" class="emotion_selector_page">
-    <iframe src="/community/upload_img/" class="upload_iframe"></iframe>
-    <div id="image_list"></div>
+<div id="editor_enhancer" class="span4 tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#em1" data-toggle="tab">表情1</a></li>
+    <li><a href="#em2" data-toggle="tab">表情2</a></li>
+    <li><a href="#em3" data-toggle="tab">表情3</a></li>
+    <li><a href="#link" data-toggle="tab">链接</a></li>
+    <li><a href="#image" data-toggle="tab">图片</a></li>
+  </ul>
+  <div id="editor_enhancer_content" class="tab-content">
+    <div id="em1" class="tab-pane active">
+      <img src="/static/img/em/ac01.gif" onclick="insertEmotion('ac01')" />
+      <img src="/static/img/em/ac02.gif" onclick="insertEmotion('ac02')" />
+      <img src="/static/img/em/ac03.gif" onclick="insertEmotion('ac03')" />
+      <img src="/static/img/em/ac04.gif" onclick="insertEmotion('ac04')" />
+      <img src="/static/img/em/ac05.gif" onclick="insertEmotion('ac05')" />
+      <img src="/static/img/em/ac06.gif" onclick="insertEmotion('ac06')" />
+      <img src="/static/img/em/ac07.gif" onclick="insertEmotion('ac07')" />
+      <img src="/static/img/em/ac08.gif" onclick="insertEmotion('ac08')" />
+      <img src="/static/img/em/ac09.gif" onclick="insertEmotion('ac09')" />
+      <img src="/static/img/em/ac10.gif" onclick="insertEmotion('ac10')" />
+      <img src="/static/img/em/ac11.gif" onclick="insertEmotion('ac11')" />
+      <img src="/static/img/em/ac12.gif" onclick="insertEmotion('ac12')" />
+      <img src="/static/img/em/ac13.gif" onclick="insertEmotion('ac13')" />
+      <img src="/static/img/em/ac14.gif" onclick="insertEmotion('ac14')" />
+      <img src="/static/img/em/ac15.gif" onclick="insertEmotion('ac15')" />
+      <img src="/static/img/em/ac16.gif" onclick="insertEmotion('ac16')" />
+      <img src="/static/img/em/ac17.gif" onclick="insertEmotion('ac17')" />
+      <img src="/static/img/em/ac18.gif" onclick="insertEmotion('ac18')" />
+      <img src="/static/img/em/ac19.gif" onclick="insertEmotion('ac19')" />
+      <img src="/static/img/em/ac20.gif" onclick="insertEmotion('ac20')" />
+      <img src="/static/img/em/ac21.gif" onclick="insertEmotion('ac21')" />
+      <img src="/static/img/em/ac22.gif" onclick="insertEmotion('ac22')" />
+      <img src="/static/img/em/ac23.gif" onclick="insertEmotion('ac23')" />
+      <img src="/static/img/em/ac24.gif" onclick="insertEmotion('ac24')" />
+      <img src="/static/img/em/ac25.gif" onclick="insertEmotion('ac25')" />
+    </div>
+    <div id="em2" class="tab-pane">
+      <img src="/static/img/em/ac26.gif" onclick="insertEmotion('ac26')" />
+      <img src="/static/img/em/ac27.gif" onclick="insertEmotion('ac27')" />
+      <img src="/static/img/em/ac28.gif" onclick="insertEmotion('ac28')" />
+      <img src="/static/img/em/ac29.gif" onclick="insertEmotion('ac29')" />
+      <img src="/static/img/em/ac30.gif" onclick="insertEmotion('ac30')" />
+      <img src="/static/img/em/ac31.gif" onclick="insertEmotion('ac31')" />
+      <img src="/static/img/em/ac32.gif" onclick="insertEmotion('ac32')" />
+      <img src="/static/img/em/ac33.gif" onclick="insertEmotion('ac33')" />
+      <img src="/static/img/em/ac34.gif" onclick="insertEmotion('ac34')" />
+      <img src="/static/img/em/ac35.gif" onclick="insertEmotion('ac35')" />
+      <img src="/static/img/em/ac36.gif" onclick="insertEmotion('ac36')" />
+      <img src="/static/img/em/ac37.gif" onclick="insertEmotion('ac37')" />
+      <img src="/static/img/em/ac38.gif" onclick="insertEmotion('ac38')" />
+      <img src="/static/img/em/ac39.gif" onclick="insertEmotion('ac39')" />
+      <img src="/static/img/em/ac40.gif" onclick="insertEmotion('ac40')" />
+      <img src="/static/img/em/ac41.gif" onclick="insertEmotion('ac41')" />
+      <img src="/static/img/em/ac42.gif" onclick="insertEmotion('ac42')" />
+      <img src="/static/img/em/ac43.gif" onclick="insertEmotion('ac43')" />
+      <img src="/static/img/em/ac44.gif" onclick="insertEmotion('ac44')" />
+      <img src="/static/img/em/ac45.gif" onclick="insertEmotion('ac45')" />
+      <img src="/static/img/em/ac46.gif" onclick="insertEmotion('ac46')" />
+      <img src="/static/img/em/ac47.gif" onclick="insertEmotion('ac47')" />
+      <img src="/static/img/em/ac48.gif" onclick="insertEmotion('ac48')" />
+      <img src="/static/img/em/ac49.gif" onclick="insertEmotion('ac49')" />
+      <img src="/static/img/em/ac50.gif" onclick="insertEmotion('ac50')" />
+    </div>
+    <div id="em3" class="tab-pane">
+      <img src="/static/img/em/ac51.gif" onclick="insertEmotion('ac51')" />
+      <img src="/static/img/em/ac52.gif" onclick="insertEmotion('ac52')" />
+      <img src="/static/img/em/ac53.gif" onclick="insertEmotion('ac53')" />
+      <img src="/static/img/em/ac54.gif" onclick="insertEmotion('ac54')" />
+    </div>
+    <div id="link" class="tab-pane">
+      <form id="insertLinkForm">
+          <p><label>文字：</label><input type="text" id="a_text" /></p>
+          <p><label>地址：</label><input type="text" id="a_url" /></p>
+          <p><a class="btn" onclick="insertA();return false;">插入链接</a></p>
+      </form>
+    </div>
+    <div id="image" class="tab-pane">
+      <iframe src="/community/upload_img/" class="upload_iframe"></iframe>
+      <div id="image_list"></div>
+    </div>
   </div>
 </div>

@@ -9,7 +9,7 @@
   <div class="span8">
     <form id="editor_form" action="" method="post">{% csrf_token %}
       <p><label>回复内容：</label><textarea id="editor" name="content" class="reply_textarea">{{ post.content }}</textarea></p>
-      <p><input type="submit" value="确认编辑" class="btn" /></p>
+      <p><input type="submit" value="确认编辑" class="btn btn-primary" /></p>
     </form>
   </div>
   {% include 'editor.html' %}

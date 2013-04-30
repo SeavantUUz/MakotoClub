@@ -1,16 +1,3 @@
-function hideAllEmotionPage() {
-  for (i=1;i<=page_num;i=i+1) {
-    id='#page'+i;
-    $(id).hide();
-  }
-}
-
-function showEmotionPage(n) {
-  hideAllEmotionPage();
-  id='#page'+n
-  $(id).show();
-}
-
 function insertAtCaret(areaId,text) {
   var txtarea = document.getElementById(areaId);
   var scrollPos = txtarea.scrollTop;
@@ -94,10 +81,4 @@ $(document).keypress(function(e){
     $("#editor_form").submit();
     document.body.focus();
   }     
-})
-
-$(document).ready(function() {
-  page_num = 5;
-  hideAllEmotionPage();
-  showEmotionPage(1);
 })

@@ -89,9 +89,6 @@ table {
 .topic_list_header td.topic_list_title {
   text-align: center;
 }
-.topic_list_title a {
-  color: #06F;
-}
 .topic_list_author {
   width: 13%;
   font-size: 12px;
@@ -108,10 +105,10 @@ table {
   width: 5%;
   font-size: 12px;
 }
-.display_topic {
-}
 
-.display_topic caption {
+
+/* 主题 */
+.topic_display caption {
   text-align: left;
   font-family: "Trebuchet MS", "Helvetica Neue", Helvetica, "Microsoft YaHei", Arial, SimHei, sans-serif;
   font-size: 1.5em;
@@ -119,48 +116,66 @@ table {
   padding: 0.5em 0 0.5em 0;
 }
 
-.display_topic td {
+.topic_display td {
     vertical-align: top;
+    padding: 7px;
 }
-
-.display_topic .post_cell {
+.topic_display .post_author {
+  width: 15%;
+}
+.topic_display .post_body {
   border-bottom: 0;
 }
-
-.display_topic .end_post {
-    height: 1.5em;
-    text-align: right;
-    vertical-align: bottom;
-    border-top: 0;
+.topic_display .post_footnote {
+  vertical-align: bottom;
+  border-top: 0;
 }
-
-.post_content {
+.topic_display .post_footnote .post_signature {
+  margin-right: 4em;
+  border-top: 1px dashed #AAA;
 }
-
-.post_content img.emotion_ac {
+.topic_display .post_footnote .post_actions {
+  margin-top: -7px;
+  margin-bottom: -7px;
+  text-align: right;
+  font-size: 12px;
+}
+.topic_display .post_body .post_content img.emotion_ac {
     width: 75px;
     height: 65px;
     vertical-align: bottom;
 }
-
 .post_modify_note {
     padding: 1em 2em;
     color: #777;
 }
-
 #reply_form {
-    display: none;
+  display: none;
 }
-
+#editor_enhancer {
+  font-size: 12px;
+}
+#editor_enhancer label, #editor_enhancer input {
+  font-size: 12px;
+}
+#editor_enhancer img {
+  font-size: 12px;
+  width: 52px;
+  height: 43px;
+}
+#editor_enhancer .nav-tabs li a {
+  padding: 4px 8px;
+}
+#editor_enhancer_content {
+  margin-top: -20px;
+  border: 1px solid #DDD;
+  border-top: 0;
+  padding: 6px;
+}
 .reply_textarea {
-    width: 40em;
-    height: 10em;
+  width: 43em;
+  height: 15em;
 }
-
-#edit_form {
-    display: none;
-}
-
 .position {
     color: #000;
 }
@@ -168,24 +183,9 @@ table {
     text-decoration: none;
     color: #000;
 }
-
 .topic_title_input {
-    width: 40em;
+    width: 43em;
 }
-
-
-
-#emotion_selector img {
-  width: 50px;
-  height: 43px;
-}
-
-#emotion_selector .emotion_selector_page {
-  border: 1px solid #000;
-  width: 282px;
-  padding: 3px;
-}
-
 .upload_iframe {
   width: 270px;
   height: 100px;
