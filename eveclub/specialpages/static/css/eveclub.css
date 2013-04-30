@@ -15,6 +15,9 @@ hr {
 footer {
   text-align: center;
 }
+blockquote p {
+  font-size: 14px;
+}
 
 /* 顶部导航 */
 #global_navbar .brand {
