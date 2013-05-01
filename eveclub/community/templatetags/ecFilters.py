@@ -1,5 +1,6 @@
 #coding: utf-8
 
+import cgi
 import re
 import markdown as m
 from HTMLParser import HTMLParser
@@ -52,3 +53,53 @@ def markdown(value):
     result = f_breakline(result)
     result = f_emotion(result)
     return mark_safe(result)
+
+def f_raw_substr(value, length=10):
+    """
+    截取字符串，使得字符串长度等于length，并在字符串后加上省略号
+    """
+    is_encode = False
+    try:
+        str_encode = value.encode('gb18030') #为了中文和英文的长度一致（中文按长度2计算）
+        is_encode = True
+    except:
+        pass
+    if is_encode:
+        l = length*2
+        if l < len(str_encode):
+            l = l - 3
+            str_encode = str_encode[:l]
+            try:
+                value = str_encode.decode('gb18030') + '...'
+            except:
+                str_encode = str_encode[:-1]
+                try:
+                    value = str_encode.decode('gb18030') + '...'
+                except:
+                    is_encode = False
+    if not is_encode:
+        if length < len(value):
+            length = length - 2
+            return value[:length] + '...'
+    return value
+
+def f_substr(value, length=10):
+    result = f_markdown(value)
+    result = f_breakline(result)
+    result = f_emotion(result)
+    result = f_unescape(result)
+    result = f_striphtml(result)
+    result = f_raw_substr(result, length)
+    result = cgi.escape(result)
+    if result == '':
+        result = u'......'
+    return result
+
+
+@register.filter(is_safe=True)
+def raw_substr(value, length=10):
+    return f_raw_substr(value, length)
+
+@register.filter(is_safe=True)
+def substr(value, length=10):
+    return mark_safe(f_substr(value, length))
