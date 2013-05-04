@@ -83,6 +83,7 @@ class Post(models.Model):
     content =  models.TextField(u'内容', max_length=5000)
     create_time = models.DateTimeField(u'创建时间', auto_now_add=True)
     update_time = models.DateTimeField(u'更新时间', auto_now=True)
+    update_author = models.ForeignKey(Pilot, verbose_name=u'作者')
     topic = models.ForeignKey(Topic, verbose_name=u'所属主题')
     floor = models.PositiveIntegerField(u'楼层', default=0)
     is_active = models.BooleanField(u'可用', default=True)

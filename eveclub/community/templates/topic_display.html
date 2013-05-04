@@ -18,7 +18,7 @@
         积分：{{ p.author.scores }} 分<br /></p>
     </td>
     <td class="post_body">
-        <div class="post_content">{{ p.content | markdown }}{% ifequal p.create_time p.update_time %}{% else %}<p class="post_modify_note">[{{ p.author }} 于 {{ p.update_time | date:"Y-m-d H:i"}} 修改了帖子内容]</p>{% endifequal %}</div>
+        <div class="post_content">{{ p.content | markdown }}{% ifequal p.create_time p.update_time %}{% else %}<p class="post_modify_note">[{{ p.update_author }} 于 {{ p.update_time | date:"Y-m-d H:i"}} 修改了帖子内容]</p>{% endifequal %}</div>
     </td>
 </tr>
 <tr>
