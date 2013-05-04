@@ -54,7 +54,7 @@ class Topic(models.Model):
     title = models.CharField(u'标题', max_length=100)
     channel = models.ForeignKey(Channel, verbose_name=u'所属频道', related_name='topics')
     topic_type = models.CharField(u'主题类型', choices=TOPIC_TYPE_CHOICES, default='normal', max_length=10)
-    shortcontent = models.CharField(u'内容简介', max_length=50)
+    shortcontent = models.CharField(u'内容简介', max_length=500)
     create_author = models.ForeignKey(Pilot, verbose_name=u'发布作者', related_name='topics')
     create_time = models.DateTimeField(u'发布时间', auto_now_add=True)
     update_author = models.ForeignKey(Pilot, verbose_name=u'更新作者', related_name='replys')

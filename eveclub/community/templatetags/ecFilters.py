@@ -32,7 +32,6 @@ def f_breakline(value):
     return result
 
 def f_emotion(value):
-    import re
     pattern = re.compile(r'\[em (ac)(\d{2})\]')
     html = r'<img class="emotion_\1" src="/static/img/em/\1\2.gif" />'
     result = pattern.sub(html, value)
@@ -95,6 +94,10 @@ def f_substr(value, length=10):
         result = u'......'
     return result
 
+def f_inline_substr(value, length=10):
+    result = f_substr(value, length)
+    return re.sub('\s', ' ', result)
+
 
 @register.filter(is_safe=True)
 def raw_substr(value, length=10):
@@ -103,3 +106,7 @@ def raw_substr(value, length=10):
 @register.filter(is_safe=True)
 def substr(value, length=10):
     return mark_safe(f_substr(value, length))
+
+@register.filter(is_safe=True)
+def inline_substr(value, length=10):
+    return mark_safe(f_inline_substr(value, length))
