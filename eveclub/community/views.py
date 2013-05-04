@@ -131,7 +131,7 @@ def post_new(request):
         title = 'RE:'+topic.title
         floor = topic.post_set.order_by('-floor')[0].floor+1
         u = request.user
-        Post.objects.create(title=title, author=u, content=content,topic=topic,floor=floor)
+        Post.objects.create(title=title, author=u, content=content, update_author=u, topic=topic,floor=floor)
         topic.update_author = u
         topic.replies += 1
         topic.save()
