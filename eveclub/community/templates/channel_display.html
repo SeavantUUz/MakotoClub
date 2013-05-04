@@ -8,19 +8,19 @@
 <tr class="topic_list_header">
   <td class="topic_list_status">状态</td>
   <td class="topic_list_title">标题</td>
-  <td class="topic_list_author">作者</td>
-  <td class="topic_list_last_reply">最后回复</td>
   <td class="topic_list_clicks">点击数</td>
   <td class="topic_list_replies">回复数</td>
+  <td class="topic_list_author">作者</td>
+  <td class="topic_list_last_reply">最后回复</td>
 </tr>
 {% for t in topics %}
 <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
   <td class="topic_list_status">{% if t.is_sticky %}置顶{% endif %}{% if t.is_essence %}<br />精华{t.essence_level}{% endif %}</td>
-  <td class="topic_list_title"><a href="/topic/{{ t.id }}/">{{ t.title }}</a><br /><span style="color: #333">{{ t.shortcontent | substr:38}}</span></td>
-  <td class="topic_list_author"><a href='/pilot/{{ t.create_author.id }}/'>{{ t.create_author }}</a><br />{{ t.create_time | date:"Y-m-d H:i"}}</td>
-  <td class="topic_list_last_reply"><a href='/pilot/{{ t.update_author.id }}/'>{{ t.update_author }}</a><br />{{ t.update_time | date:"Y-m-d H:i"}}</td>
+  <td class="topic_list_title"><a href="/topic/{{ t.id }}/">{{ t.title }}</a><br /><span style="color: #333">{{ t.shortcontent | inline_substr:38}}</span></td>
   <td class="topic_list_clicks">{{ t.clicks }}</td>
   <td class="topic_list_replies">{{ t.replies }}</td>
+  <td class="topic_list_author"><a href='/pilot/{{ t.create_author.id }}/'>{{ t.create_author }}</a><br />{{ t.create_time | date:"Y-m-d H:i"}}</td>
+  <td class="topic_list_last_reply"><a href='/pilot/{{ t.update_author.id }}/'>{{ t.update_author }}</a><br />{{ t.update_time | date:"Y-m-d H:i"}}</td>
 </tr>
 {% endfor %}
 
