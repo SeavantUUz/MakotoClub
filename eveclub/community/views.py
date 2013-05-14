@@ -96,6 +96,7 @@ def topic_new(request):
     post = Post.objects.create(title=title,
                                author=create_author,
                                content=content,
+                               update_author=u,
                                topic=topic)
     u.experience += channel.topic_exp
     u.wealth     += channel.topic_wlt

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>EveClub {% block title%}{% endblock %}</title>
   <!-- Le styles -->
-  <link href="http://lib.sinaapp.com/js/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://libs.baidu.com/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{ STATIC_URL }}css/eveclub.css" rel="stylesheet">
   {% for css in extra_css %}<link href="{{ STATIC_URL }}css/{{ css }}" rel="stylesheet">{% endfor %}
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -49,8 +49,8 @@
 &copy; EveClub Develop Group 2012-2013
 </footer>
 </div>
-<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
-<script src="http://lib.sinaapp.com/js/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+<script src="http://libs.baidu.com/bootstrap/2.3.1/js/bootstrap.min.js"></script>
 {% for js in extra_js %}<script src="{{ STATIC_URL }}js/{{ js }}"></script>{% endfor %}
 {% if stat_js %}<script type="text/javascript">
 {{ stat_js | safe }}</script>{% endif %}
