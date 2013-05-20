@@ -82,7 +82,7 @@ def topic_new(request):
     else:
         raise CommunityError(u'您的操作不正确！')
 
-    shortcontent = content.strip()[:50]
+    shortcontent = content.strip()[:500]
     u = request.user
     create_author = u
     update_author = u
