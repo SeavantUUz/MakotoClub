@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic import RedirectView
 from eveclub.settings import DEBUG, MEDIA_ROOT, STATIC_ROOT
+
 from django.contrib import admin
 admin.autodiscover()
 
@@ -15,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^channel/(?P<channel_id>\d+)/p(?P<page>\d+)/$', 'community.views.channel_display'),
     url(r'^topic/(?P<topic_id>\d+)/$', 'community.views.topic_display'),
     url(r'^topic/(?P<topic_id>\d+)/p(?P<page>\d+)/$', 'community.views.topic_display'),
+    url(r'^favicon\.ico$', RedirectView.as_view(url='/static/img/favicon.ico')),
 )
 
 if DEBUG:
