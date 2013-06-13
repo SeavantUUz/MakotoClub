@@ -30,6 +30,11 @@
 </tr>
 {% endfor %}
 </table>
+{% if page_flag %}
+<div id="page_list">
+  <p>页码：{% for p in page_range %}<a href="/topic/{{topic.id}}/{% ifnotequal p 1%}p{{p}}/{% endifnotequal %}">{{p}}</a> {% endfor %}</p>
+</div>
+{% endif %}
 </div>
 {% if user.is_authenticated %}
 <div class="user_action">

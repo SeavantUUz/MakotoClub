@@ -6,3 +6,7 @@ CHANNEL_TYPE_CHOICES = (('public', u'公开频道'),
 
 TOPIC_TYPE_CHOICES = (('normal', u'常规'),
                       ('poll', u'投票'),)
+
+CHANNEL_PAGE_SIZE = 20
+
+TOPIC_PAGE_SIZE = 20

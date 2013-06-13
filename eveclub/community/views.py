@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
+from django.core.paginator import Paginator, EmptyPage
 from eveclub.settings import MEDIA_ROOT
 from eveclub.lib import RequestContext
 from community.config import *
@@ -23,7 +24,7 @@ def community(request):
     return render_to_response('community.html', {'categories': displayed_categories}, context_instance=RequestContext(request))
 
 @error_handler
-def channel_display(request, channel_id):
+def channel_display(request, channel_id, page=1):
     try:
         chnl = Channel.objects.get(id=channel_id)
     except Channel.DoesNotExist:
@@ -33,11 +34,19 @@ def channel_display(request, channel_id):
 
     sticky_topics = chnl.topics.filter(is_active=True, is_sticky=True).order_by('sticky_order')
     normal_topics = chnl.topics.filter(is_active=True, is_sticky=False)
-    topics = [t for t in sticky_topics] + [t for t in normal_topics]
-    return render_to_response('channel_display.html', {'channel': chnl, 'topics': topics, 'extra_js': ('community/editor.js',)}, context_instance=RequestContext(request))
+    topics_pages = Paginator(normal_topics, CHANNEL_PAGE_SIZE)
+    try:
+        current_topics_page = topics_pages.page(page)
+    except EmptyPage:
+        raise CommunityError(u'您访问的页码不正确！')
+    if topics_pages.num_pages > 1:
+        page_flag = True
+    else:
+        page_flag = False
+    return render_to_response('channel_display.html', {'channel': chnl, 'sticky_topics': sticky_topics, 'normal_topics': current_topics_page, 'page_flag': page_flag, 'page_range': topics_pages.page_range, 'extra_js': ('community/editor.js',)}, context_instance=RequestContext(request))
 
 @error_handler
-def topic_display(request, topic_id):
+def topic_display(request, topic_id, page=1):
     try:
         topic = Topic.objects.get(id=topic_id)
     except Topic.DoesNotExist:
@@ -50,9 +59,18 @@ def topic_display(request, topic_id):
 
     if topic.topic_type == 'normal':
         posts = topic.post_set.filter(is_active=True)
+    posts_pages = Paginator(posts, TOPIC_PAGE_SIZE)
+    try:
+        current_posts_page = posts_pages.page(page)
+    except EmptyPage:
+        raise CommunityError(u'您访问的页码不正确！')
+    if posts_pages.num_pages > 1:
+        page_flag = True
+    else:
+        page_flag = False
     topic.clicks +=1
     topic.save(update_fields=['clicks'])
-    return render_to_response('topic_display.html', {'channel': chnl, 'topic': topic, 'posts': posts, 'extra_js': ('community/editor.js','community/resize_images.js',)}, context_instance=RequestContext(request))
+    return render_to_response('topic_display.html', {'channel': chnl, 'topic': topic, 'posts': current_posts_page, 'page_flag': page_flag, 'page_range': posts_pages.page_range, 'extra_js': ('community/editor.js','community/resize_images.js',)}, context_instance=RequestContext(request))
 
 @login_required
 @error_handler

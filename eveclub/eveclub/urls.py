@@ -12,7 +12,9 @@ urlpatterns = patterns('',
     url(r'^pilot/', include('pilot.urls')),
     url(r'^community/', include('community.urls')),
     url(r'^channel/(?P<channel_id>\d+)/$', 'community.views.channel_display'),
+    url(r'^channel/(?P<channel_id>\d+)/p(?P<page>\d+)/$', 'community.views.channel_display'),
     url(r'^topic/(?P<topic_id>\d+)/$', 'community.views.topic_display'),
+    url(r'^topic/(?P<topic_id>\d+)/p(?P<page>\d+)/$', 'community.views.topic_display'),
 )
 
 if DEBUG:
