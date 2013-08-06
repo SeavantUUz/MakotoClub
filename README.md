@@ -1,14 +1,11 @@
-EveClub
+开发代号：MakotoClub
 =======
 
-Django based community of MMORPG "Eve online", especially for players in China.
+基于Django的中国ACG社区
 
-This project presents the source codes for our community of MMORPG "Eve online".
-
-Our community was built based on Django framework version 1.5 and MySQL. It also needs some more Python packages including:
-
+需要
 * MySQL-Python
 * PIL
 * Markdown
 
-We need more help.
+我们需要更多的帮助！
